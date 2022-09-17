@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNGTuber</title>
+    <script defer src="face-api.min.js"></script>
+    <script defer src="main.js"></script>
+    <style>
+        .options {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 150px;
+        }
+
+        .gif {
+            display: grid;
+            position: relative;
+            width: 500px;
+            aspect-ratio: 1;
+        }
+
+        .gif > * {
+            position: absolute;
+        }
+    </style>
+</head>
+<body style="display: flex; flex-direction: row; gap: 200px;">
+    <div class="canvases" style="display: flex; flex-direction: column;">
+        <canvas id="canvas" width="500" height="500" style="width: 500px; aspect-ratio:1;"></canvas>
+        <div id="facial" style="display: block;">
+            <video id="videoFeed" width="640" height="360" style="position: absolute;" autoplay muted></video>
+        </div>
+    </div>
+    <div class="gif">
+        <div id="output-background" style="width: inherit; aspect-ratio: 1; background: transparent;"></div>
+        <img src="Nathria_Idle.gif" id="gif" style="width: 500px; aspect-ratio:1;">
+        <canvas id="underCanvas" width="500" height="500" style="width: 500px; aspect-ratio:1; top: 200px;"></canvas>
+    </div>
+    <div class="options">
+        <input type="button" value="Calibrate" id="caliBtn">
+        <input type="button" value="Mute" id="muteBtn">
+        <input type="button" value="Visualize Waves" id="visualBtn">
+        <input type="color" id="bg-color" style="width: inherit; margin-top: 20px;">
+        <input type="button" value="Change Background" id="bgBtn">
+
+        <input type="text" id="voice-activity-precision" style="margin-top: 20px;">
+        <input type="button" value="Modify Precision" id="precBtn">
+    </div>
+</body>
+</html>
